@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Album } from '../model/album.model';
 import { Photo } from '../model/photo.model';
 
 @Injectable({
@@ -12,8 +13,7 @@ export class PhotoService {
 
   httpOptions = {
     headers: new HttpHeaders({
-      'Content-Type': 'application/json',
-      'rejectUnauthorized': 'false' 
+      'Content-Type': 'application/json'
     })
   }
 
@@ -21,7 +21,7 @@ export class PhotoService {
     private httpClient: HttpClient
   ) { }
 
-  public getPhotosByAlbum(albumid : number): Observable<Photo> {
-    return this.httpClient.get<Photo>(this.apiUrl + "/Album/" + albumid);
+  public getPhotosByAlbum(albumid : number): Observable<Album> {
+    return this.httpClient.get<Album>(this.apiUrl + "/Album/" + albumid);
   }
 }

@@ -7,7 +7,8 @@ import { PhotosComponent } from './views/photos/photos.component';
 const routes: Routes = [
   {
     path:'',
-    component: HomeComponent
+    redirectTo: 'albums',
+    pathMatch: 'full'
   },
   {
     path:'albums',

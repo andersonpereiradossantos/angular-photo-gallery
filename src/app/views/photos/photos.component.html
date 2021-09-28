@@ -1,9 +1,9 @@
 <mat-toolbar>
     <mat-toolbar-row>
-        <span>Photo Gallery</span>
+        <span>Photo Gallery - {{album.name}}</span>
     </mat-toolbar-row>
 </mat-toolbar>
 
 <div class="column">
-    <img *ngFor="let item of photos;" src="https://localhost:44332/api/Photo/DownloadFile/{{item.id}}/1" />
+    <img *ngFor="let item of album.photos;" src="https://localhost:44332/api/Photo/DownloadFile/{{item.id}}/0" loading="lazy"/>
 </div>

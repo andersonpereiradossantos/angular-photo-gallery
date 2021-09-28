@@ -8,7 +8,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./photos.component.css']
 })
 export class PhotosComponent implements OnInit {
-  photos : any | undefined;  
+  album : any | undefined;  
   public albumid : number | undefined;
 
   constructor(
@@ -23,7 +23,7 @@ export class PhotosComponent implements OnInit {
 
   getPhotosByAlbum(albumid : number){
     this.photoService.getPhotosByAlbum(albumid).subscribe(data => {
-      this.photos = data;
+      this.album = data;
     });
   }
 }

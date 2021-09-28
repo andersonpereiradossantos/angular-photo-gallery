@@ -9,5 +9,5 @@
 </mat-toolbar>
 
 <div class="column">
-  <img *ngFor="let album of albums;" (click)="getPhotos(album.id)" src="https://localhost:44332/api/Photo/DownloadFile/{{album.photos[0].id}}/1" alt="{{album.name}}" />
+  <img *ngFor="let album of albums;" (click)="getPhotos(album.id)" src="https://localhost:44332/api/Photo/DownloadFile/{{album.photos[0].id}}/0" alt="{{album.name}}" />
 </div>
