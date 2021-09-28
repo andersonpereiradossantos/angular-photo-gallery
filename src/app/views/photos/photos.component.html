@@ -1,0 +1,9 @@
+<mat-toolbar>
+    <mat-toolbar-row>
+        <span>Photo Gallery</span>
+    </mat-toolbar-row>
+</mat-toolbar>
+
+<div class="column">
+    <img *ngFor="let item of photos;" src="https://localhost:44332/api/Photo/DownloadFile/{{item.id}}/1" />
+</div>

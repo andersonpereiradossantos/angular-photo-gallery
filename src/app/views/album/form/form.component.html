@@ -1,0 +1,13 @@
+<h2 mat-dialog-title>New Album</h2>
+<mat-dialog-content class="mat-typography">
+  <form [formGroup]="albumForm">
+    <mat-form-field appearance="fill">
+      <mat-label>Name</mat-label>
+      <input matInput formControlName="name" name="name">
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button color="primary">Cancel</button>
+  <button mat-button cdkFocusInitial (click)="createAlbum()">Confirm</button>
+</mat-dialog-actions>

@@ -1,0 +1,13 @@
+<mat-toolbar>
+  <mat-toolbar-row>
+      <span>Photo Gallery</span>
+      <span class="example-spacer"></span>
+      <button mat-flat-button color="primary" (click)="openDialog()">
+          <mat-icon>add</mat-icon>Add
+      </button>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<div class="column">
+  <img *ngFor="let album of albums;" (click)="getPhotos(album.id)" src="https://localhost:44332/api/Photo/DownloadFile/{{album.photos[0].id}}/1" alt="{{album.name}}" />
+</div>
