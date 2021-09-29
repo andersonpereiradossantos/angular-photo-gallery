@@ -1,13 +1,18 @@
 <mat-toolbar>
   <mat-toolbar-row>
-      <span>Photo Gallery</span>
-      <span class="example-spacer"></span>
-      <button mat-flat-button color="primary" (click)="openDialog()">
-          <mat-icon>add</mat-icon>Add
-      </button>
+    <span>Photo Gallery</span>
+    <span class="example-spacer"></span>
+    <button mat-flat-button color="primary" (click)="openDialog()">
+      <mat-icon>add</mat-icon>Add
+    </button>
   </mat-toolbar-row>
 </mat-toolbar>
 
-<div class="column">
-  <img *ngFor="let album of albums;" (click)="getPhotos(album.id)" src="https://localhost:44332/api/Photo/DownloadFile/{{album.photos[0].id}}/0" alt="{{album.name}}" />
+<div class="parent">
+  <div class="child" *ngFor="let album of albums;">
+    <img (click)="getPhotos(album.id)" src="https://localhost:44332/api/Photo/DownloadFile/{{album.photos[0].id}}/0" alt="{{album.name}}" />
+    <div class="child-footer">
+      <span>{{album.name}}</span>
+    </div>
+  </div>
 </div>

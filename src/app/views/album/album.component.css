@@ -1,46 +1,67 @@
 .example-spacer {
-  flex: 1 1 auto;
-  }
-  
-  .column {
-    padding: 10px 0;
-    -webkit-columns: 250px 3;
-    -moz-columns: 250px 3;
-    columns: 250px 3;
-    -webkit-column-gap: 15px;
-    -moz-column-gap: 15px;
-    column-gap: 15px;
-    max-width: 80vw;
-    margin: 0 auto;
-    display: block;
-    -moz-column-fill: balance;
-    column-fill: balance;
-  }
-  
-  img {
-      width: 100%;
-      min-width: calc(100% - 4px);
-      margin: 10px;
-      background-color: white;
-      display: inline-block;
-      position: relative;
-      box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .2), 0 1px 1px 0 rgba(0, 0, 0, .14), 0 2px 1px -1px rgba(0, 0, 0, .12);
-      padding: 0px;
-      box-sizing: border-box;
-      border-radius: 5px;
-      -webkit-column-break-inside: avoid;
-      page-break-inside: avoid;
-      break-inside: avoid-column;
-  }
-  
-  img:nth-child(2n) {
-    height: auto;
-  }
-  
-  img:nth-child(4n + 1) {
-    height: auto;
-  }
-  
-  img:nth-child(7n -1) {
-    height: auto;
-  }
+flex: 1 1 auto;
+}
+
+.parent {
+  padding: 10px 0;
+  -webkit-columns: 250px 3;
+  -moz-columns: 250px 3;
+  columns: 250px 3;
+  -webkit-column-gap: 15px;
+  -moz-column-gap: 15px;
+  column-gap: 15px;
+  max-width: 80vw;
+  margin: 0 auto;
+  display: block;
+  -moz-column-fill: balance;
+  column-fill: balance;
+}
+
+.child img {
+    width: 100%;
+    min-width: calc(100% - 4px);
+    /* margin: 10px; */
+    background-color: white;
+    display: inline-block;
+    position: relative;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .2), 0 1px 1px 0 rgba(0, 0, 0, .14), 0 2px 1px -1px rgba(0, 0, 0, .12);
+    padding: 0px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    -webkit-column-break-inside: avoid;
+    page-break-inside: avoid;
+    break-inside: avoid-column;
+}
+
+.child img:nth-child(2n) {
+  min-height: auto;
+}
+
+.child img:nth-child(4n + 1) {
+  min-height: auto;
+}
+
+.child img:nth-child(7n -1) {
+  min-height: auto;
+}
+
+.child{
+    position: relative;
+    width: 100%;
+    padding: 10px;
+}
+
+.child-footer{
+    background: red;
+    position: absolute;
+    bottom: 14px;
+    padding: 15px 15px 15px;
+    z-index: 1;
+    width: calc(100% - 50px);
+    visibility: hidden;
+    transition: all 5s;
+}
+
+.child:hover > .child-footer{
+    visibility: visible;
+}

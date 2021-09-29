@@ -4,6 +4,24 @@
     </mat-toolbar-row>
 </mat-toolbar>
 
-<div class="column">
-    <img *ngFor="let item of album.photos;" src="https://localhost:44332/api/Photo/DownloadFile/{{item.id}}/0" loading="lazy"/>
+<div class="parent">
+    <div class="child" *ngFor="let item of album.photos;" (click)="disappearContext()">
+        <img (contextmenu)="onContextMenu($event, item)" src="https://localhost:44332/api/Photo/DownloadFile/{{item.id}}/0" loading="lazy"/>
+        <div class="child-footer">
+            <span>{{item.name}}</span>
+        </div>
+    </div>
 </div>
+
+<div style="visibility: hidden; position: fixed"
+    [style.left]="contextMenuPosition.x"
+    [style.top]="contextMenuPosition.y"
+    [matMenuTriggerFor]="contextMenu">
+</div>
+<mat-menu #contextMenu="matMenu">
+	<ng-template matMenuContent let-item="item">
+		<button mat-menu-item>Edit</button>
+		<button mat-menu-item (click)="deletePhoto(item.id)">Delete</button>
+		<button mat-menu-item>Property</button>
+	</ng-template>
+</mat-menu>

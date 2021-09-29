@@ -28,4 +28,8 @@ export class AlbumService {
     console.log(album);
     return this.httpClient.post<Album>(this.apiUrl, album, this.httpOptions);
   }
+
+  public deleteAlbum(albumId: number): Observable<Album> {
+    return this.httpClient.delete<Album>(this.apiUrl + "/" + albumId);
+  }
 }
