@@ -10,7 +10,8 @@
 
 <div class="parent">
   <div class="child" *ngFor="let album of albums;">
-    <img (click)="getPhotos(album.id)" src="https://localhost:44332/api/Photo/DownloadFile/{{album.photos[0].id}}/0" alt="{{album.name}}" />
+    <img (click)="getPhotos(album.id)" *ngIf="album.photos.length > 0" src="https://localhost:44332/api/Photo/DownloadFile/{{album.photos[0].id}}/0" alt="{{album.name}}" />
+    <img (click)="getPhotos(album.id)" *ngIf="album.photos.length == 0" src="https://dummyimage.com/600x400/000/fff&text=Teste" alt="{{album.name}}" />
     <div class="child-footer">
       <span>{{album.name}}</span>
     </div>

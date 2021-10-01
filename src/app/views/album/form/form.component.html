@@ -8,6 +8,6 @@
   </form>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
-  <button mat-button color="primary">Cancel</button>
+  <button mat-button (click)="closeDialog()" color="primary">Cancel</button>
   <button mat-button cdkFocusInitial (click)="createAlbum()">Confirm</button>
 </mat-dialog-actions>

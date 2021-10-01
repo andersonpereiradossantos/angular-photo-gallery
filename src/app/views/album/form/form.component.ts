@@ -9,7 +9,7 @@ import { AlbumService } from 'src/app/shared/service/album.service';
   styleUrls: ['./form.component.css']
 })
 export class FormComponent implements OnInit {
-  public albumForm!:  FormGroup;
+  public albumForm!: FormGroup;
 
   constructor(
     private fb: FormBuilder,
@@ -23,14 +23,18 @@ export class FormComponent implements OnInit {
     });
   }
 
-  createAlbum(){
-    this.rest.postAlbum(this.albumForm.value).subscribe(data=>{
-      console.log(data);
-    },
-    error=>{
-      console.log(error);
-    }
+  createAlbum() {
+    this.rest.postAlbum(this.albumForm.value).subscribe(
+      data => {
+        console.log(data);
+      },
+      error => {
+        console.log(error);
+      }
     );
   }
 
+  closeDialog() {
+    this.dialogRef.close();
+  }
 }

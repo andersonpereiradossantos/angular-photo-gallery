@@ -4,17 +4,13 @@
   
 .parent {
   padding: 10px 0;
-  -webkit-columns: 250px 4;
-  -moz-columns: 250px 4;
-  columns: 250px 4;
-  -webkit-column-gap: 15px;
-  -moz-column-gap: 15px;
+  -webkit-columns: 250px 5;
+  -moz-columns: 250px 5;
+  columns: 250px 5;
   column-gap: 15px;
   max-width: 90vw;
   margin: 0 auto;
-  display: block;
-  -moz-column-fill: balance;
-  column-fill: balance;
+
 }
 
 .child img {

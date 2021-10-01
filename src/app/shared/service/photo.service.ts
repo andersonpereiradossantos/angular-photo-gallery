@@ -10,12 +10,12 @@ import { environment } from '../../../environments/environment';
 })
 export class PhotoService {
 
-  public apiEndpoint =  environment.apiEndpoint + "Photo/";
+  public apiEndpoint = environment.apiEndpoint + "Photo/";
 
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
-      'rejectUnauthorized': 'false' 
+      'rejectUnauthorized': 'false'
     })
   }
 
@@ -23,11 +23,20 @@ export class PhotoService {
     private httpClient: HttpClient
   ) { }
 
-  public getPhotosByAlbum(albumid : number): Observable<Album> {
-    return this.httpClient.get<Album>(this.apiEndpoint + "Album/" + albumid);
+  public getPhotosByAlbum(albumId: number): Observable<Album> {
+    return this.httpClient.get<Album>(this.apiEndpoint + "Album/" + albumId);
   }
 
-  public deletePhoto(photoId: number): Observable<Photo> {
-    return this.httpClient.delete<Photo>(this.apiEndpoint + photoId);
+  public deletePhoto(photo: Photo): Observable<Photo> {
+    console.log(photo);
+    return this.httpClient.delete<Photo>(this.apiEndpoint + photo.id);
+  }
+
+  public setCoverAlbum(photoId: number): Observable<Photo> {
+    return this.httpClient.put<Photo>(this.apiEndpoint + "SetCoverAlbum/" + photoId, this.httpOptions);
+  }
+
+  public putPhoto(photo?: Photo): Observable<Photo> {
+    return this.httpClient.put<Photo>(this.apiEndpoint + photo?.id, photo, this.httpOptions);
   }
 }

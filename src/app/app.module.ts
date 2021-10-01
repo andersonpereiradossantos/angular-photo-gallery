@@ -20,6 +20,8 @@ import { PhotosComponent } from './views/photos/photos.component';
 import { FormComponent } from './views/album/form/form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatNativeDateModule } from '@angular/material/core';
+import { FormRenameComponent } from './views/photos/form-rename/form-rename.component';
+import { DialogDeleteComponent } from './views/photos/dialog-delete/dialog-delete.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,8 @@ import { MatNativeDateModule } from '@angular/material/core';
     AlbumComponent,
     PhotosComponent,
     FormComponent,
+    FormRenameComponent,
+    DialogDeleteComponent,
   ],
   imports: [
     BrowserModule,

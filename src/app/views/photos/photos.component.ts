@@ -1,8 +1,12 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { PhotoService } from 'src/app/shared/service/photo.service';
 import { ActivatedRoute } from '@angular/router';
-import { MatMenuModule, MatMenuTrigger } from '@angular/material/menu';
+import { MatMenuTrigger } from '@angular/material/menu';
 import { Photo } from 'src/app/shared/model/photo.model';
+import { MatDialog } from '@angular/material/dialog';
+import { FormRenameComponent } from './form-rename/form-rename.component';
+import { Album } from 'src/app/shared/model/album.model';
+import { DialogDeleteComponent } from './dialog-delete/dialog-delete.component';
 
 @Component({
   selector: 'app-photos',
@@ -10,40 +14,32 @@ import { Photo } from 'src/app/shared/model/photo.model';
   styleUrls: ['./photos.component.css']
 })
 export class PhotosComponent implements OnInit {
-  album: any | undefined;
-  public albumid: number | undefined;
+  album?: Album;
+  public albumId?: number;
 
   constructor(
     public photoService: PhotoService,
-    private _route: ActivatedRoute
+    private _route: ActivatedRoute,
+    private dialog: MatDialog,
+    private dialogDelete: MatDialog
   ) { }
 
   ngOnInit(): void {
-    this.albumid = parseInt(this._route.snapshot.params['albumid']);
-    this.getPhotosByAlbum(this.albumid);
+    this.albumId = parseInt(this._route.snapshot.params['albumId']);
+    this.getPhotosByAlbum(this.albumId);
   }
 
-  getPhotosByAlbum(albumid: number) {
-    this.photoService.getPhotosByAlbum(albumid).subscribe(data => {
+  getPhotosByAlbum(albumId: number) {
+    this.photoService.getPhotosByAlbum(albumId).subscribe(data => {
       this.album = data;
     });
   }
 
-  deletePhoto(photoId: number) {
-    this.photoService.deletePhoto(photoId).subscribe(data => { });
+  setCoverAlbum(photoId: number) {
+    this.photoService.setCoverAlbum(photoId).subscribe(data => {
+      console.log("Ok");
+    });
   }
-
-  // @ViewChild('menu') menu!:ElementRef 
-  // contextMenu(event: MouseEvent) { 
-  //   event.preventDefault();
-  //   this.menu.nativeElement.style.display = "block";
-  //   this.menu.nativeElement.style.top = event.pageY + "px";
-  //   this.menu.nativeElement.style.left = event.pageX + "px";
-  // } 
-
-  // disappearContext(){
-  //   this.menu.nativeElement.style.display = "none";
-  // }
 
   @ViewChild(MatMenuTrigger) contextMenu!: MatMenuTrigger;
 
@@ -57,8 +53,28 @@ export class PhotosComponent implements OnInit {
     this.contextMenu.menu.focusFirstItem('mouse');
     this.contextMenu.openMenu();
   }
-  
-  disappearContext(){
+
+  disappearContext() {
     this.contextMenu.closeMenu();
+  }
+
+  openDialog(photo: Photo) {
+    const dialogRef = this.dialog.open(FormRenameComponent, {
+      "width": "400px",
+      data: { photo: photo }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+
+  openDialogDelete(photo: Photo) {
+    const dialogRefDelete = this.dialogDelete.open(DialogDeleteComponent, {
+      "width": "400px",
+      data: { photo: photo }
+    });
+    dialogRefDelete.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
   }
 }

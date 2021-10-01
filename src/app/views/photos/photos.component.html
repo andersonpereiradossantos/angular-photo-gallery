@@ -1,11 +1,11 @@
 <mat-toolbar>
     <mat-toolbar-row>
-        <span>Photo Gallery - {{album.name}}</span>
+        <span>Photo Gallery - {{album?.name}}</span>
     </mat-toolbar-row>
 </mat-toolbar>
 
 <div class="parent">
-    <div class="child" *ngFor="let item of album.photos;" (click)="disappearContext()">
+    <div class="child" *ngFor="let item of album?.photos;" (click)="disappearContext()">
         <img (contextmenu)="onContextMenu($event, item)" src="https://localhost:44332/api/Photo/DownloadFile/{{item.id}}/0" loading="lazy"/>
         <div class="child-footer">
             <span>{{item.name}}</span>
@@ -20,8 +20,8 @@
 </div>
 <mat-menu #contextMenu="matMenu">
 	<ng-template matMenuContent let-item="item">
-		<button mat-menu-item>Edit</button>
-		<button mat-menu-item (click)="deletePhoto(item.id)">Delete</button>
-		<button mat-menu-item>Property</button>
+		<button mat-menu-item (click)="openDialog(item)" >Rename</button>
+		<button mat-menu-item (click)="openDialogDelete(item)">Delete</button>
+		<button mat-menu-item (click)="setCoverAlbum(item.id)">Set Cover Album</button>
 	</ng-template>
 </mat-menu>

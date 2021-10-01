@@ -25,7 +25,6 @@ export class AlbumService {
   }
 
   public postAlbum(album: Album): Observable<Album> {
-    console.log(album);
     return this.httpClient.post<Album>(this.apiUrl, album, this.httpOptions);
   }
 

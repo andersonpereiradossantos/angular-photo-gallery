@@ -1,7 +1,7 @@
 export class Photo {
-    Id: number | undefined;
-    Name: string | undefined;
-    DataCreate: Date | undefined;
-    Cover: boolean | undefined;
-    AlbumId: number | undefined;
+    id?: number;
+    name?: string;
+    dataCreate?: Date;
+    cover?: boolean;
+    albumId?: number;
 }

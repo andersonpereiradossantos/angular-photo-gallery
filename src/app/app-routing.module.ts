@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './views/home/home.component';
 import { AlbumComponent } from './views/album/album.component';
 import { PhotosComponent } from './views/photos/photos.component';
 
@@ -15,7 +14,7 @@ const routes: Routes = [
     component: AlbumComponent
   },
   {
-    path:'photos/:albumid',
+    path:'photos/:albumId',
     component: PhotosComponent
   }
 ];

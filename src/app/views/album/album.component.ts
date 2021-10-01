@@ -32,7 +32,6 @@ export class AlbumComponent implements OnInit {
   }
 
   getPhotos(albumid : number | undefined){
-    console.log(albumid);
     this._router.navigate(['/photos', albumid])
   }
 
