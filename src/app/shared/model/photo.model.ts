@@ -4,4 +4,5 @@ export class Photo {
     dataCreate?: Date;
     cover?: boolean;
     albumId?: number;
+    file?: File;
 }

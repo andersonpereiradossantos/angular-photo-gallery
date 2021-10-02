@@ -1,0 +1,8 @@
+<h2 mat-dialog-title>Upload Photos to {{data.album.name}}</h2>
+<mat-dialog-content class="mat-typography">
+    <form [formGroup]="uploadForm">
+        <input type="file"
+        id="file"
+        (change)="uploadPhoto($event, data.album)">
+    </form>
+</mat-dialog-content>

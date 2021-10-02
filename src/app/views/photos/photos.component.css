@@ -1,6 +1,6 @@
 .example-spacer {
   flex: 1 1 auto;
-  }
+}
   
 .parent {
   padding: 10px 0;
@@ -10,7 +10,6 @@
   column-gap: 15px;
   max-width: 90vw;
   margin: 0 auto;
-
 }
 
 .child img {

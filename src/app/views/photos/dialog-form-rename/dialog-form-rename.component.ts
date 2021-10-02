@@ -1,4 +1,4 @@
-import { Component, Inject, inject, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Photo } from 'src/app/shared/model/photo.model';
@@ -6,8 +6,8 @@ import { PhotoService } from 'src/app/shared/service/photo.service';
 
 @Component({
   selector: 'app-form-rename',
-  templateUrl: './form-rename.component.html',
-  styleUrls: ['./form-rename.component.css']
+  templateUrl: './dialog-form-rename.component.html',
+  styleUrls: ['./dialog-form-rename.component.css']
 })
 export class FormRenameComponent implements OnInit {
   public photoForm!: FormGroup;

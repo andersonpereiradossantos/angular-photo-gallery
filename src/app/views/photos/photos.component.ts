@@ -4,9 +4,11 @@ import { ActivatedRoute } from '@angular/router';
 import { MatMenuTrigger } from '@angular/material/menu';
 import { Photo } from 'src/app/shared/model/photo.model';
 import { MatDialog } from '@angular/material/dialog';
-import { FormRenameComponent } from './form-rename/form-rename.component';
+import { FormRenameComponent } from './dialog-form-rename/dialog-form-rename.component';
 import { Album } from 'src/app/shared/model/album.model';
 import { DialogDeleteComponent } from './dialog-delete/dialog-delete.component';
+import { DialogSetCoverAlbumComponent } from './dialog-set-cover-album/dialog-set-cover-album.component';
+import { DialogUploadPhotoComponent } from './dialog-upload-photo/dialog-upload-photo.component';
 
 @Component({
   selector: 'app-photos',
@@ -14,14 +16,16 @@ import { DialogDeleteComponent } from './dialog-delete/dialog-delete.component';
   styleUrls: ['./photos.component.css']
 })
 export class PhotosComponent implements OnInit {
-  album?: Album;
+  public album?: Album;
   public albumId?: number;
 
   constructor(
     public photoService: PhotoService,
     private _route: ActivatedRoute,
     private dialog: MatDialog,
-    private dialogDelete: MatDialog
+    private dialogDelete: MatDialog,
+    private dialogSetCover: MatDialog,
+    private dialogUpload: MatDialog
   ) { }
 
   ngOnInit(): void {
@@ -32,12 +36,6 @@ export class PhotosComponent implements OnInit {
   getPhotosByAlbum(albumId: number) {
     this.photoService.getPhotosByAlbum(albumId).subscribe(data => {
       this.album = data;
-    });
-  }
-
-  setCoverAlbum(photoId: number) {
-    this.photoService.setCoverAlbum(photoId).subscribe(data => {
-      console.log("Ok");
     });
   }
 
@@ -69,11 +67,33 @@ export class PhotosComponent implements OnInit {
   }
 
   openDialogDelete(photo: Photo) {
-    const dialogRefDelete = this.dialogDelete.open(DialogDeleteComponent, {
+    const dialogRef = this.dialogDelete.open(DialogDeleteComponent, {
       "width": "400px",
       data: { photo: photo }
     });
-    dialogRefDelete.afterClosed().subscribe(result => {
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+
+  openDialogSetCover(photo: Photo) {
+    const dialogSetCover = this.dialogSetCover.open(DialogSetCoverAlbumComponent, {
+      "width": "400px",
+      data: { photo: photo }
+    });
+    dialogSetCover.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+
+  openDialogUpload(album?: Album) {
+    console.log(album);
+    const dialogUpload = this.dialogUpload.open(DialogUploadPhotoComponent, {
+      "width": "400px",
+      data: { album: album }
+    });
+
+    dialogUpload.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
     });
   }

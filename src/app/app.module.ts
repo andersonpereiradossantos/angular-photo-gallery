@@ -20,8 +20,10 @@ import { PhotosComponent } from './views/photos/photos.component';
 import { FormComponent } from './views/album/form/form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatNativeDateModule } from '@angular/material/core';
-import { FormRenameComponent } from './views/photos/form-rename/form-rename.component';
+import { FormRenameComponent } from './views/photos/dialog-form-rename/dialog-form-rename.component';
 import { DialogDeleteComponent } from './views/photos/dialog-delete/dialog-delete.component';
+import { DialogSetCoverAlbumComponent } from './views/photos/dialog-set-cover-album/dialog-set-cover-album.component';
+import { DialogUploadPhotoComponent } from './views/photos/dialog-upload-photo/dialog-upload-photo.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +34,8 @@ import { DialogDeleteComponent } from './views/photos/dialog-delete/dialog-delet
     FormComponent,
     FormRenameComponent,
     DialogDeleteComponent,
+    DialogSetCoverAlbumComponent,
+    DialogUploadPhotoComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,27 +1,39 @@
 <mat-toolbar>
     <mat-toolbar-row>
-        <span>Photo Gallery - {{album?.name}}</span>
+      <span>Photo Gallery - {{album?.name}}</span>
+      <span class="example-spacer"></span>
+      <button mat-flat-button color="accent" (click)="openDialogUpload(album)">
+        <mat-icon>upload</mat-icon> Upload
+      </button>
     </mat-toolbar-row>
-</mat-toolbar>
+  </mat-toolbar>
 
 <div class="parent">
     <div class="child" *ngFor="let item of album?.photos;" (click)="disappearContext()">
-        <img (contextmenu)="onContextMenu($event, item)" src="https://localhost:44332/api/Photo/DownloadFile/{{item.id}}/0" loading="lazy"/>
+        <img (contextmenu)="onContextMenu($event, item)"
+            src="https://localhost:44332/api/Photo/DownloadFile/{{item.id}}/0" loading="lazy" />
         <div class="child-footer">
             <span>{{item.name}}</span>
         </div>
     </div>
 </div>
 
-<div style="visibility: hidden; position: fixed"
-    [style.left]="contextMenuPosition.x"
-    [style.top]="contextMenuPosition.y"
-    [matMenuTriggerFor]="contextMenu">
+<div style="visibility: hidden; position: fixed" [style.left]="contextMenuPosition.x"
+    [style.top]="contextMenuPosition.y" [matMenuTriggerFor]="contextMenu">
 </div>
 <mat-menu #contextMenu="matMenu">
-	<ng-template matMenuContent let-item="item">
-		<button mat-menu-item (click)="openDialog(item)" >Rename</button>
-		<button mat-menu-item (click)="openDialogDelete(item)">Delete</button>
-		<button mat-menu-item (click)="setCoverAlbum(item.id)">Set Cover Album</button>
-	</ng-template>
+    <ng-template matMenuContent let-item="item">
+        <button mat-menu-item (click)="openDialog(item)">
+            <mat-icon>edit</mat-icon>
+            Rename
+        </button>
+        <button mat-menu-item (click)="openDialogSetCover(item)">
+            <mat-icon>done</mat-icon>
+            Set as Cover Album
+        </button>
+        <button mat-menu-item (click)="openDialogDelete(item)">
+            <mat-icon>delete_forever</mat-icon>
+            Delete
+        </button>
+    </ng-template>
 </mat-menu>
