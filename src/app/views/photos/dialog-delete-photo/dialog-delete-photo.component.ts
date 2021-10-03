@@ -5,16 +5,16 @@ import { Photo } from 'src/app/shared/model/photo.model';
 import { PhotoService } from 'src/app/shared/service/photo.service';
 
 @Component({
-  selector: 'app-dialog-delete',
-  templateUrl: './dialog-delete.component.html',
-  styleUrls: ['./dialog-delete.component.css']
+  selector: 'app-dialog-delete-photo',
+  templateUrl: './dialog-delete-photo.component.html',
+  styleUrls: ['./dialog-delete-photo.component.css']
 })
-export class DialogDeleteComponent implements OnInit {
+export class DialogDeletePhotoComponent implements OnInit {
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: { photo: Photo },
     private fb: FormBuilder,
-    public dialogRef: MatDialogRef<DialogDeleteComponent>,
+    public dialogRef: MatDialogRef<DialogDeletePhotoComponent>,
     private rest: PhotoService
   ) { }
 

@@ -1,0 +1,5 @@
+<h2 mat-dialog-title>Delete {{data.album.name}}</h2>
+<mat-dialog-actions align="end">
+    <button mat-button (click)="closeDialog()" color="primary">Cancel</button>
+    <button mat-button cdkFocusInitial (click)="deleteAlbum(data.album)">Confirm</button>
+</mat-dialog-actions>

@@ -1,67 +1,34 @@
 .example-spacer {
   flex: 1 1 auto;
   }
+
+  .card {
+    /* Add shadows to create the "card" effect */
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    max-width: 400px;
+    min-width: 400px;
+    margin: 25px 50px;
+    float: left;
+  }
+
+  .image{
+    background-size: cover;
+    height: 250px;
+    background-position: center;
+  }
   
-.parent {
-  padding: 10px 0;
-  -webkit-columns: 250px 5;
-  -moz-columns: 250px 5;
-  columns: 250px 5;
-  column-gap: 15px;
-  max-width: 90vw;
-  margin: 0 auto;
+  /* On mouse-over, add a deeper shadow */
+  .card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }
 
-}
-
-.child img {
-  width: 100%;
-  min-width: calc(100% - 4px);
-  /* margin: 10px; */
-  background-color: white;
-  display: inline-block;
-  position: relative;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .2), 0 1px 1px 0 rgba(0, 0, 0, .14), 0 2px 1px -1px rgba(0, 0, 0, .12);
-  padding: 0px;
-  box-sizing: border-box;
-  border-radius: 5px;
-  -webkit-column-break-inside: avoid;
-  page-break-inside: avoid;
-  break-inside: avoid-column;
-}
-
-.child img:nth-child(2n) {
-  min-height: auto;
-}
-
-.child img:nth-child(4n + 1) {
-  min-height: auto;
-}
-
-.child img:nth-child(7n -1) {
-  min-height: auto;
-}
-
-.child{
-  position: relative;
-  width: 100%;
-  padding-top: 10px;
-}
-
-.child-footer{
-  background: rgb(0, 0, 0, 0.8);
-  color: #fff;
-  position: absolute;
-  bottom: 5px;
-  padding: 15px 15px 15px;
-  z-index: 1;
-  width: calc(100% - 30px);
-  visibility: hidden;
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
-  font-weight: normal;
-  word-break: break-word;
-}
-
-.child:hover > .child-footer{
-    visibility: visible;
-}
+  .card .image:hover {
+    width: 100%;
+  }
+  
+  
+  /* Add some padding inside the card container */
+  .container {
+    padding: 2px 16px;
+  }

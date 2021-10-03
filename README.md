@@ -1,27 +1,35 @@
-# PhotoGallery
+# Photo Gallery
+[![NPM](https://img.shields.io/npm/l/react)](https://github.com/andersonpereiradossantos/angular-photo-gallery/blob/main/LICENSE)
+
+![Angular Photo Gallery Presentation](https://raw.githubusercontent.com/andersonpereiradossantos/assets/main/angular-photo-gallery.gif)
+## About code
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.6.
 
-## Development server
+## Install
+### Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
+### Code scaffolding
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
+### Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
+### Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## License
+This project is shared under the MIT license. This means you can modify and use it however you want, even for comercial use. If you liked it, consider marking a ⭐️.
+
+## Author
+
+Anderson Pereira dos Santos
+
+[Linkedin](https://www.linkedin.com/in/andersonpereirasantos)
+
+[Github](https://github.com/andersonpereiradossantos)

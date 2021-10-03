@@ -40,11 +40,15 @@ export class PhotoService {
     return this.httpClient.put<Photo>(this.apiEndpoint + photo?.id, photo, this.httpOptions);
   }
 
-  public postPhoto(photo?: Photo): Observable<Photo> {
-    console.log(photo);
+  public postPhoto(photos: Photo[]): Observable<Photo> {
     const formData: FormData = new FormData();
-    formData.append('AlbumId', photo!.albumId!.toString());
-    formData.append('File', photo!.file!, photo!.file!.name);
+
+    formData.append('albumId', photos[0].albumId!.toString());
+    
+    for(let [index, value] of photos.entries()){
+      formData.append(`file[${index}]`, value.file!);
+    }
+    
     return this.httpClient.post<Photo>(this.apiEndpoint, formData, { headers: new HttpHeaders({ 'Content-Disposition': 'multipart/form-data', 'rejectUnauthorized': 'false' }) });
   }
 }

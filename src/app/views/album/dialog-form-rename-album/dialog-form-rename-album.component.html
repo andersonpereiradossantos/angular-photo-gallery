@@ -1,0 +1,14 @@
+<h2 mat-dialog-title>Rename</h2>
+<mat-dialog-content class="mat-typography">
+    <form [formGroup]="albumForm">
+        <mat-label>Name</mat-label>
+        <input formControlName="id" name="id" type="hidden"/>
+        <mat-form-field style="width: 100%;">
+            <input matInput formControlName="name" name="name" />
+        </mat-form-field>
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button (click)="closeDialog()" color="primary">Cancel</button>
+    <button mat-button cdkFocusInitial (click)="putAlbum()">Confirm</button>
+</mat-dialog-actions>

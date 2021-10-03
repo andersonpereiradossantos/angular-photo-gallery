@@ -27,15 +27,26 @@ export class DialogUploadPhotoComponent implements OnInit {
   }
 
   uploadPhoto(event: any, album: Album) {
-    let photo = new Photo();
+    let photos: Photo[] = [];
 
-    photo.file = event.target.files[0];
-    photo.albumId = album.id;
+    Array.prototype.forEach.call(event.target.files, (elem: File, index: number) => {
+      let photo = new Photo();
+      photo.file = elem;
+      photo.albumId = album.id;
 
-    this.rest.postPhoto(photo).subscribe(data => {
+      photos.push(photo);
+    });
+
+    this.rest.postPhoto(photos).subscribe(
+    data => {
       this.closeDialog();
       window.location.reload();
-    });
+    },
+    error=>{
+      console.error();
+      
+    }
+    );
 
   }
 

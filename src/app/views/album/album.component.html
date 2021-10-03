@@ -3,19 +3,31 @@
     <span>Photo Gallery</span>
     <span class="example-spacer"></span>
     <button mat-flat-button color="primary" (click)="openDialog()">
-      <mat-icon>add</mat-icon>Add
+      <mat-icon>add</mat-icon>New Album
     </button>
   </mat-toolbar-row>
 </mat-toolbar>
 
-<div class="parent">
-  <div class="child" *ngFor="let album of albums;">
-    <img (click)="getPhotos(album.id)" *ngIf="album.photos.length > 0"
-      src="https://localhost:44332/api/Photo/DownloadFile/{{album.photos[0].id}}/0" alt="{{album.name}}" />
-    <img (click)="getPhotos(album.id)" *ngIf="album.photos.length == 0"
-      src="https://dummyimage.com/600x400/000/fff&text=Teste" alt="{{album.name}}" />
-    <div class="child-footer">
-      <span>{{album.name}}</span>
-    </div>
+<div class="card" *ngFor="let album of albums;">
+  <div  (contextmenu)="onContextMenu($event, album)" class="image" (click)="getPhotos(album.id)" *ngIf="album.photos.length > 0" style="background-image: url('https://localhost:44332/api/Photo/DownloadFile/{{album.photos[0].id}}/0')" title="{{album.name}}"></div>
+  <div  (contextmenu)="onContextMenu($event, album)" class="image" (click)="getPhotos(album.id)" *ngIf="album.photos.length == 0" style="background-image: url('https://dummyimage.com/600x400/00b3ff/ffffff.png&text=Empty+Album')" title="{{album.name}}"></div>
+  <div class="container">
+    <h4><b>{{album.name}}</b></h4>
   </div>
 </div>
+
+<div style="visibility: hidden; position: fixed" [style.left]="contextMenuPosition.x"
+    [style.top]="contextMenuPosition.y" [matMenuTriggerFor]="contextMenu">
+</div>
+<mat-menu #contextMenu="matMenu">
+    <ng-template matMenuContent let-item="item">
+        <button mat-menu-item (click)="openDialogRename(item)">
+          <mat-icon>edit</mat-icon>
+          Rename
+        </button>
+        <button mat-menu-item (click)="openDialogDeleteAlbum(item)">
+          <mat-icon>delete_forever</mat-icon>
+            Delete
+        </button>
+    </ng-template>
+</mat-menu>

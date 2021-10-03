@@ -3,6 +3,7 @@
     <form [formGroup]="uploadForm">
         <input type="file"
         id="file"
+        multiple="multiple"
         (change)="uploadPhoto($event, data.album)">
     </form>
 </mat-dialog-content>

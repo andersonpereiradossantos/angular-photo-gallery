@@ -6,7 +6,7 @@ import { Photo } from 'src/app/shared/model/photo.model';
 import { MatDialog } from '@angular/material/dialog';
 import { FormRenameComponent } from './dialog-form-rename/dialog-form-rename.component';
 import { Album } from 'src/app/shared/model/album.model';
-import { DialogDeleteComponent } from './dialog-delete/dialog-delete.component';
+import { DialogDeletePhotoComponent } from './dialog-delete-photo/dialog-delete-photo.component';
 import { DialogSetCoverAlbumComponent } from './dialog-set-cover-album/dialog-set-cover-album.component';
 import { DialogUploadPhotoComponent } from './dialog-upload-photo/dialog-upload-photo.component';
 
@@ -67,7 +67,7 @@ export class PhotosComponent implements OnInit {
   }
 
   openDialogDelete(photo: Photo) {
-    const dialogRef = this.dialogDelete.open(DialogDeleteComponent, {
+    const dialogRef = this.dialogDelete.open(DialogDeletePhotoComponent, {
       "width": "400px",
       data: { photo: photo }
     });

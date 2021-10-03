@@ -27,6 +27,7 @@ export class FormComponent implements OnInit {
     this.rest.postAlbum(this.albumForm.value).subscribe(
       data => {
         console.log(data);
+        window.location.reload();
       },
       error => {
         console.log(error);
