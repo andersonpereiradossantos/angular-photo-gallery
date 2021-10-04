@@ -1,5 +1,5 @@
 # Photo Gallery
-[![NPM](https://img.shields.io/npm/l/react)](https://github.com/andersonpereiradossantos/angular-photo-gallery/blob/main/LICENSE)
+[![MIT](https://img.shields.io/npm/l/react)](https://github.com/andersonpereiradossantos/angular-photo-gallery/blob/main/LICENSE)
 
 ![Angular Photo Gallery Presentation](https://raw.githubusercontent.com/andersonpereiradossantos/assets/main/angular-photo-gallery.gif)
 ## About code
@@ -22,6 +22,9 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 ### Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## Rest API used
+[.NET Core API Photo Gallery](https://github.com/andersonpereiradossantos/dotnet-core-api-photo-gallery)
 
 ## License
 This project is shared under the MIT license. This means you can modify and use it however you want, even for comercial use. If you liked it, consider marking a ⭐️.
