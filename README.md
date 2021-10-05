@@ -1,4 +1,4 @@
-# Photo Gallery
+# Angular Photo Gallery
 [![MIT](https://img.shields.io/npm/l/react)](https://github.com/andersonpereiradossantos/angular-photo-gallery/blob/main/LICENSE)
 
 ![Angular Photo Gallery Presentation](https://raw.githubusercontent.com/andersonpereiradossantos/assets/main/angular-photo-gallery.gif)
